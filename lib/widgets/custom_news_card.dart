@@ -9,21 +9,24 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(image)),
-        borderRadius: BorderRadius.circular(8),
+    return Padding(
+      padding: const EdgeInsets.only(right: 15),
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(image)),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        height: 120,
+        width: 200,
+        child:  Center(
+            child: Text(
+          title,
+          style:const TextStyle(
+              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+        )),
       ),
-      height: 120,
-      width: 200,
-      child:  Center(
-          child: Text(
-        title,
-        style:const TextStyle(
-            color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-      )),
     );
   }
 }
