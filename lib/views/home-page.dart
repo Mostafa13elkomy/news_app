@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/widgets/custom_news_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,7 +23,10 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(),
+      body:const CategoryCard(
+        title: 'hhjh',
+        image: 'assets/modern-equipment-operating-room-medical-devices-neurosurgery_179755-5289.jpg',
+      )
     );
   }
 }
