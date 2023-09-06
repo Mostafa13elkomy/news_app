@@ -11,7 +11,7 @@ class NewsTile extends StatelessWidget {
       ClipRRect
       (
         borderRadius: BorderRadius.circular(6),
-        child: Image.network('https://media.istockphoto.com/id/1316763903/photo/attractive-sexy-guy-standing-on-the-street-in-sunglasses-self-confidence-flatulence-and.jpg?s=1024x1024&w=is&k=20&c=aR4GrEhMoNXCDCAsJnROZxetaVt9AGRpKp7a3AIdLI0=')),
+        child: Image.asset('assets/1266579.jpg')),
       const SizedBox(
         height: 12,
       ),
