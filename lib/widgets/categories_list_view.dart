@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/models/category_model.dart';
 import 'package:news_app/widgets/custom_news_card.dart';
 
+// ignore: must_be_immutable
 class CategoriesListView extends StatelessWidget {
   CategoriesListView({
     super.key,
