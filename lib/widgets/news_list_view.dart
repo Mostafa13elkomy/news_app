@@ -14,7 +14,9 @@ class NewsListView extends StatefulWidget {
 }
 
 class _NewsListViewState extends State<NewsListView> {
+  bool isLoading = true;
   List<ArticleModel> articles = [];
+
   @override
   void initState() {
     super.initState();
@@ -22,15 +24,22 @@ class _NewsListViewState extends State<NewsListView> {
   }
 
   Future<void> getNews() async {
-  articles =await  NewsServices(Dio()).getGeneralNews();
+  
+    articles = await NewsServices(Dio()).getGeneralNews();
+    isLoading = false;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: articles.length, (context, index) {
-        return  NewsTile(articleModel:articles[index] ,);
+    return isLoading ?
+    const SliverToBoxAdapter(child: Center(child:CircularProgressIndicator()))
+    : SliverList(
+      delegate: SliverChildBuilderDelegate(childCount: articles.length,
+          (context, index) {
+        return NewsTile(
+          articleModel: articles[index],
+        );
       }),
     );
   }
