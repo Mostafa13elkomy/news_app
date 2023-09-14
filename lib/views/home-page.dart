@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                   height: 32,
                 ),
               ),
-              const NewsListViewBuilder()
+              NewsListViewBuilder()
             ],
           ),
         ));
