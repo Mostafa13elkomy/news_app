@@ -21,17 +21,28 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
     super.initState();
     getNews();
   }
+
   Future<void> getNews() async {
-  
     articles = await NewsServices(Dio()).getGeneralNews();
     isLoading = false;
     setState(() {});
   }
 
-
   Widget build(BuildContext context) {
-    return  isLoading ?
-    const SliverToBoxAdapter(child: Center(child:CircularProgressIndicator()))
-    : NewsListView(articles: articles);
+    return FutureBuilder(
+        future: NewsServices(Dio()).getGeneralNews(),
+        builder: (context, snapshot) {
+          return NewsListView(articles:snapshot.data??[] );
+        });
+    // return isLoading
+    //     ? const SliverToBoxAdapter(
+    //         child: Center(child: CircularProgressIndicator()))
+    //     : articles.isNotEmpty
+    //         ? NewsListView(articles: articles)
+    //         : const SliverToBoxAdapter(
+    //             child:
+    //                 Center(
+    //                   child: Text('Opps there was an error, try again')),
+    //           );
   }
 }
