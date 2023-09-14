@@ -22,18 +22,24 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ArticleModel>>(
-        future: future,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return NewsListView(articles: snapshot.data!);
-          } else if (snapshot.hasError) {
-            return const SliverToBoxAdapter(
-              child: Center(child: Text('Opps there was an error, try again')),
-            );
-          } else {
-            return const SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator()));
-          }
-        });
+      future: future,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return NewsListView(articles: snapshot.data!);
+        } else if (snapshot.hasError) {
+          return const SliverToBoxAdapter(
+            child: Center(
+              child: Text('Opps there was an error, try again'),
+            ),
+          );
+        } else {
+          return const SliverToBoxAdapter(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+      },
+    );
   }
 }
